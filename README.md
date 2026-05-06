@@ -8,15 +8,14 @@
   </picture>
 </p>
 
-A [Mathematica](https://www.wolfram.com/mathematica/) package built on [xAct](https://www.xact.es/)/[xPand](https://www2.iap.fr/users/pitrou/xpand.htm) for computing cosmological perturbation equations in luminal Horndeski gravity and expressing them in terms of the EFT alpha parameters $\alpha_M$, $\alpha_K$, $\alpha_B$ and their derivatives.
+A Mathematica package built on [xAct](https://www.xact.es/)/[xPand](https://www2.iap.fr/users/pitrou/xpand.htm) for computing cosmological perturbation equations in luminal Horndeski gravity and expressing them in terms of the EFT alpha parameters $\alpha_M$, $\alpha_K$, $\alpha_B$ and their derivatives.
 
 Given a luminal Horndeski theory defined by functions $K(\phi, X)$, $G_3(\phi, X)$, $G_4(\phi)$, xAlpha:
 
-- Computes equations of motion for a cosmological FLRW background to quadratic order in perturbations using xPand
-- Computes the EFT alpha parameters $(\alpha_M, \alpha_K, \alpha_B)$ and all their derivatives with respect to time, $X$, and $\phi$ up to third order
-- Replaces Horndeski $G$-function derivatives in perturbation equations with alpha parameters
-- Extracts and stores the linear and quadratic perturbation coefficients from the $(0,0)$, $(0,i)$, $(i,j)$, and scalar field equations
-- Converts coefficients between raw Horndeski, alpha-basis, and gamma-basis EFT bases
+- Computes equations of motion for a FLRW background to quadratic order in perturbations using xPand
+- Computes the alpha parameters $(\alpha_M, \alpha_K, \alpha_B)$ and all their derivatives with respect to time, $X$, and $\phi$ up to third order
+- Extracts and stores the linear and quadratic perturbation coefficients from the metric $(0,0)$, $(0,i)$, $(i,j)$, and scalar field equations
+- Systematically replaces Horndeski $G$-function derivatives with alpha parameters
 - Validates that extracted coefficients fully reconstruct the original equations
 
 ---
@@ -30,15 +29,16 @@ Given a luminal Horndeski theory defined by functions $K(\phi, X)$, $G_3(\phi, X
 
 ## Installation
 
-Run this once in any Mathematica notebook to install xAlpha system-wide alongside other xAct packages:
+Clone the repo directly into your xAct applications folder:
 
-```mathematica
-src  = "/path/to/xAlpha";   (* folder containing xAlpha.m *)
-dest = FileNameJoin[{$UserBaseDirectory, "Applications", "xAct", "xAlpha"}];
-RunProcess[{"ln", "-s", src, dest}];
+```bash
+cd "$HOME/Library/Mathematica/Applications/xAct"
+git clone https://github.com/sergisl/xAlpha.git xAlpha
 ```
 
-After this, `<< xAct`xAlpha`` works from any notebook. Alternatively, load directly:
+After this, `<< xAct`xAlpha`` works from any Mathematica notebook, just like `<< xAct`xPand``.
+
+Alternatively, load directly by path without installing:
 
 ```mathematica
 Get["/path/to/xAlpha/xAlpha.m"];
@@ -51,12 +51,6 @@ Get["/path/to/xAlpha/xAlpha.m"];
 ## Examples
 
 See [`Examples/luminalHorndeski-cosmoperts.nb`](Examples/luminalHorndeski-cosmoperts.nb) for a complete worked example.
-
----
-
-## Notes on `KK`
-
-The Horndeski kinetic function $K(\phi, X)$ is defined as `KK` internally (printed as $K$) to avoid a clash with Mathematica's built-in `K[m]`.
 
 ---
 
@@ -75,8 +69,7 @@ If you use this code, please cite:
 }
 ```
 
-Please also cite the xAct suite:
-> J. M. Martín-García et al., *xAct: Efficient tensor computer algebra for the Wolfram Language*, https://www.xact.es/
+Please also cite xAct and xPand.
 
 ---
 
