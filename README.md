@@ -36,12 +36,10 @@ cd "$HOME/Library/Mathematica/Applications/xAct"
 git clone https://github.com/sergisl/xAlpha.git xAlpha
 ```
 
-After this, `<< xAct`xAlpha`` works from any Mathematica notebook, just like `<< xAct`xPand``.
+After this, `<< xAct`\`xAlpha\`` ` works from any Mathematica notebook, just like `<< xAct`\`xPand\`` `. Alternatively, load directly by path without installing:
 
-Alternatively, load directly by path without installing:
-
-```mathematica
-Get["/path/to/xAlpha/xAlpha.m"];
+```bash
+Get["/path/to/xAlpha/xAlpha.m"]
 ```
 
 > **Note on `Setup.wl`:** It must be loaded manually *after* the xAct manifold and xPand slicing are defined, since it contains `DefTensor` calls that depend on them. See the worked example notebook in `Examples/`.
@@ -73,12 +71,8 @@ Please also cite xAct and xPand.
 
 ---
 
-## AI assistance disclosure
-
-Parts of this codebase were developed with the assistance of GitHub Copilot. All physics formulations and scientific results were designed and verified by the authors.
-
----
-
 ## Contact
 
 For questions or comments, please contact sergi.sirera@port.ac.uk.
+
+> Parts of this codebase were developed with the assistance of GitHub Copilot. All physics formulations and scientific results were designed and verified by the authors.
