@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Backup files
+*.bak
+
+# Mathematica cache binaries — exclude all by default...
+Cache/*.mx
+# ...except the pre-computed EOMs that ship with the package
+!Cache/metricEOMsQuad.mx
+!Cache/metricEOMsQuadGR.mx
+!Cache/scalarEOMQuad.mx
+
+# Archive folder (development history, not part of the package)
+Archive/
+
+# Notebooks not part of the public package
+Examples/QuickStart.vsnb
+cosmological-background-luminal-Horndeski.nb
+
+# Wolfram history
+*.History
+xAlpha.History
