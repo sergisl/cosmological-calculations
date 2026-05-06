@@ -50,7 +50,7 @@ Get["/path/to/xAlpha/xAlpha.m"];
 
 ## Examples
 
-See [`luminalHorndeski-cosmoperts`](Examples/luminalHorndeski-cosmoperts.nb) for a complete worked notebook reproducing the results in [2605.XXXXX](https://arxiv.org/abs/2605.XXXXX).
+See [`luminalHorndeski`](Examples/luminalHorndeski.nb) for a complete worked notebook reproducing the results in [2605.XXXXX](https://arxiv.org/abs/2605.XXXXX).
 
 ---
 
