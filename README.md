@@ -36,7 +36,9 @@ cd "$HOME/Library/Mathematica/Applications/xAct"
 git clone https://github.com/sergisl/xAlpha.git xAlpha
 ```
 
-After this, `<< xAct``xAlpha`` ` works from any Mathematica notebook, just like `<< xAct``xPand`` `. Alternatively, load directly by path without installing:
+After this, `<< xAct``xAlpha`` ` works from any Mathematica notebook, just like `<< xAct``xPand`` `.
+
+Alternatively, load directly by path without installing:
 
 ```mathematica
 Get["/path/to/xAlpha/xAlpha.m"];
@@ -75,7 +77,7 @@ Please also cite xAct and xPand.
 
 For questions or comments, please contact sergi.sirera@port.ac.uk.
 
-> Parts of this codebase were developed with the assistance of GitHub Copilot. All physics formulations and scientific results were designed and verified by the authors.
+> Parts of this codebase were developed with the assistance of GitHub Copilot. All physics formulations and     scientific results were designed and verified by the authors.
 
 ---
 
