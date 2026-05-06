@@ -76,3 +76,10 @@ Please also cite xAct and xPand.
 For questions or comments, please contact sergi.sirera@port.ac.uk.
 
 > Parts of this codebase were developed with the assistance of GitHub Copilot. All physics formulations and scientific results were designed and verified by the authors.
+
+---
+
+![GitHub language count](https://img.shields.io/github/languages/count/sergisl/xAlpha)
+![GitHub top language](https://img.shields.io/github/languages/top/sergisl/xAlpha?color=yellow)
+![GitHub forks](https://img.shields.io/github/forks/sergisl/xAlpha?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/sergisl/xAlpha?style=social)
