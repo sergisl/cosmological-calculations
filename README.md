@@ -50,7 +50,7 @@ Get["/path/to/xAlpha/xAlpha.m"];
 
 ## Examples
 
-See [`luminalHorndeski`](Examples/luminalHorndeski.nb) for a complete worked notebook reproducing the results in [2605.XXXXX](https://arxiv.org/abs/2605.XXXXX).
+See [`luminalHorndeski`](Examples/luminalHorndeski.nb) for a complete worked notebook reproducing the results in [2605.04154](https://arxiv.org/abs/2605.04154).
 
 ---
 
@@ -64,8 +64,8 @@ If you use this code, please cite:
   title   = {{A Master Equation for Screening in Luminal Horndeski Gravity}},
   journal = {arXiv},
   year    = {2026},
-  note    = {arXiv:XXXX.XXXXX},
-  url     = {https://arxiv.org/abs/XXXX.XXXXX},
+  note    = {arXiv:2605.04154},
+  url     = {https://arxiv.org/abs/2605.04154},
 }
 ```
 
