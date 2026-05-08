@@ -22,7 +22,7 @@ If[Unevaluated[$xAlphaVerbose] === $xAlphaVerbose, $xAlphaVerbose = False];
 (* ========================================================================== *)
 (* Load sub-packages                                                          *)
 (* ========================================================================== *)
-(* NOTE: Setup.wl is NOT loaded here because it contains top-level DefTensor *)
+(* Setup.wl is loaded separately after the manifold is defined *)
 (* and DefProjectedTensor calls that require the user's manifold, metric,    *)
 (* and xPand slicing to already be defined. Load it manually in your         *)
 (* notebook AFTER DefManifold / SetSlicing / DefMetricFields, via:           *)

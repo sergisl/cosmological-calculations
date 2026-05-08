@@ -1,7 +1,7 @@
 (* ::Package:: *)
 
 (* ========================================================================== *)
-(* Horndeski Alpha Functions Package - FAST, CLEAN & ALPHA EOM INTEGRATED    *)
+(* Horndeski Alpha Functions Package                                          *)
 (* ========================================================================== *)
 
 (* Sub-package loaded by xAct`xAlpha` — no nested BeginPackage *)
@@ -14,13 +14,13 @@ ComputeAlphaB::usage = "ComputeAlphaB[G4, G4phi, G3X, Hh, phidot, X] computes th
 ComputeAlphaTimeDerivative::usage = "ComputeAlphaTimeDerivative[alphaExpr, phi, phidot, phiddot, Hh, Hdot, X, replacementRules] computes the cosmic-time derivative of an alpha parameter expression using the chain rule: d\[Alpha]/dt = (\[PartialD]\[Alpha]/\[PartialD]\[CurlyPhi])\[CurlyPhi]' + (\[PartialD]\[Alpha]/\[PartialD]\[CurlyPhi]')\[CurlyPhi]'' + (\[PartialD]\[Alpha]/\[PartialD]X)X' + (\[PartialD]\[Alpha]/\[PartialD]H)H'. alphaExpr may be a bare expression or an Equal equation (rhs is used). replacementRules should be HorndeskiDerivativeReplacements1. Returns a symbolic expression.";
 ComputeAlphaXDerivative::usage = "ComputeAlphaXDerivative[alphaExpr, X, phidot, replacementRules] computes the X-derivative of an alpha parameter expression, accounting for the dependence of X = \[CurlyPhi]'^2/2 on \[CurlyPhi]'. alphaExpr may be a bare expression or an Equal equation (rhs is used). replacementRules should be HorndeskiDerivativeReplacements1. Returns a symbolic expression.";
 ComputeAlphaPhiDerivative::usage = "ComputeAlphaPhiDerivative[alphaExpr, phi, replacementRules] computes the \[CurlyPhi]-derivative of an alpha parameter expression. alphaExpr may be a bare expression or an Equal equation (rhs is used). replacementRules should be HorndeskiDerivativeReplacements1. Returns a symbolic expression.";
-ComputeAllAlphas::usage = "ComputeAllAlphas[phi, X, Hh, HorndeskiDerivativeReplacements1, phidotToX] computes and stores all EFT alpha parameters and their derivatives as Global` equations. Populates: Mstarexpr, aMexpr, aKexpr, aBexpr; first/second/third time derivatives (aBdotexpr, etc.); X-derivatives (aBXexpr, aKXexpr, aMXexpr, ...); \[CurlyPhi]-derivatives (aBphiexpr, ...); and mixed time+X derivatives (aBXdotexpr, etc.). Must be called after Setup.wl is loaded and the manifold/metric are defined. HorndeskiDerivativeReplacements1 is typically obtained from GetHorndeskiRules[].";
+ComputeAllAlphas::usage = "ComputeAllAlphas[phi, X, Hh, HorndeskiDerivativeReplacements1, phidotToX] computes and stores all EFT alpha parameters and their derivatives as Global` equations. Populates: Mstarexpr, aMexpr, aKexpr, aBexpr; first/second/third time derivatives (aBdotexpr, etc.); X-derivatives (aBXexpr, aKXexpr, aMXexpr, ...); \[CurlyPhi]-derivatives (aBphiexpr, ...); and mixed time+X derivatives (aBXdotexpr, etc.).";
 
 (* --- Transformations --- *)
-RemoveK::usage = "RemoveK[expr, phidotToX] substitutes all Horndeski K-function derivatives (KX, KXX, Kphi, KphiX, ...) in expr with the corresponding combinations of EFT alpha parameters (\[Alpha]_K, \[Alpha]_B and their derivatives), using equations previously computed by ComputeAllAlphas[]. Returns {transformedExpr, substitutionRules}. Must be called after ComputeAllAlphas[].";
+RemoveK::usage = "RemoveK[expr, phidotToX] substitutes all Horndeski K-function derivatives (KX, KXX, Kphi, KphiX, ...) in expr with the corresponding combinations of EFT alpha parameters (\[Alpha]_K, \[Alpha]_B and their derivatives), using equations previously computed by ComputeAllAlphas[]. Returns {transformedExpr, substitutionRules}.";
 RemoveG3::usage = "RemoveG3[expr, phidotToX] substitutes all G3 derivatives (G3X, G3XX, G3phi, G3phiX, ...) in expr with combinations of EFT alpha parameters (\[Alpha]_B and its X and \[CurlyPhi] derivatives), using equations from ComputeAllAlphas[]. Returns {transformedExpr, substitutionRules}.";
 RemoveG4::usage = "RemoveG4[expr, phidotToX] substitutes all G4 derivatives (G4, G4phi, G4phiphi, ...) in expr with the Planck mass Mstar[] and its time derivatives (\[Alpha]_M and its derivatives), using equations from ComputeAllAlphas[]. Returns {transformedExpr, substitutionRules}.";
-GToAlphas::usage = "GToAlphas[expr, phidotToX] applies the full transformation chain RemoveK \[Rule] RemoveG3 \[Rule] RemoveG4 to expr, replacing all Horndeski G-function derivatives with EFT alpha parameters. Returns the transformed expression. Convenience wrapper around RemoveK, RemoveG3, RemoveG4. Must be called after ComputeAllAlphas[].";
+GToAlphas::usage = "GToAlphas[expr, phidotToX] applies the full transformation chain RemoveK \[Rule] RemoveG3 \[Rule] RemoveG4 to expr, replacing all Horndeski G-function derivatives with EFT alpha parameters. Returns the transformed expression. Convenience wrapper around RemoveK, RemoveG3, RemoveG4.";
 
 ApplyConservationEOMRules::usage = "ApplyConservationEOMRules[] returns a list of replacement rules derived from the background energy and momentum conservation equations, expressing \!\(\*OverscriptBox[\(\[ScriptCapitalE]\), \(.\)]\), \!\(\*OverscriptBox[\(\[ScriptCapitalP]\), \(.\)]\) and higher derivatives in terms of \[ScriptCapitalE], \[ScriptCapitalP], H and the alpha parameters. Apply with //. to an expression to eliminate time derivatives of the fluid variables.";
 SimplifyWithConservation::usage = "SimplifyWithConservation[expr] applies ApplyConservationEOMRules[] to expr and calls Simplify[]. Convenience wrapper.";
@@ -47,8 +47,8 @@ ConvertAllCoefficientsToGammaLanguage::usage = "ConvertAllCoefficientsToGammaLan
 
 (* --- Validation --- *)
 ReconstructEquationFromCoefficients::usage = "ReconstructEquationFromCoefficients[equationType, pertHead, removeScalarWrapper] reconstructs equation from extracted raw coefficients. equationType: \"linear-A\", \"quadratic-A\", \"linear-B\", \"quadratic-B\", \"linear-C\", \"quadratic-C\", \"linear-D\", \"quadratic-D\". removeScalarWrapper: rules to remove Scalar[] wrappers.";
-ValidateCoefficients::usage = "ValidateCoefficients[originalEqn, equationType, pertHead(s), coeffType] validates that extracted coefficients fully reconstruct the original equation. IMPORTANT: originalEqn must contain ONLY terms of the order being validated (linear terms for linear validation, quadratic terms for quadratic validation). Returns {isComplete, residual}.";
-ValidateAllCoefficients::usage = "ValidateAllCoefficients[equations, pertHeads, coeffType] systematically validates all coefficients. equations is an Association with keys: \"eq00Linear\", \"eq00Quadratic\", \"eq0iLinear\", \"eq0iQuadratic\", \"eqijLinear\", \"eqijQuadratic\", \"eqScalarLinear\", \"eqScalarQuadratic\". CRITICAL: Each equation MUST be already separated by perturbation order - linear equations should contain ONLY linear terms, quadratic equations should contain ONLY quadratic terms. Use CollectByOrder[] or Coefficient[] to separate before calling. Returns {results, failedValidations}.";
+ValidateCoefficients::usage = "ValidateCoefficients[originalEqn, equationType, pertHead(s), coeffType] validates that extracted coefficients fully reconstruct the original equation. Returns {isComplete, residual}.";
+ValidateAllCoefficients::usage = "ValidateAllCoefficients[equations, pertHeads, coeffType] systematically validates all coefficients. equations is an Association with keys: \"eq00Linear\", \"eq00Quadratic\", \"eq0iLinear\", \"eq0iQuadratic\", \"eqijLinear\", \"eqijQuadratic\", \"eqScalarLinear\", \"eqScalarQuadratic\". Returns {results, failedValidations}.";
 ValidateFullLinearEquation::usage = "ValidateFullLinearEquation[equationType, originalEqn, pertHeads, removeScalarWrapper] validates full linear equation reconstruction and returns {isComplete, residual}.";
 ValidateFullQuadraticEquation::usage = "ValidateFullQuadraticEquation[equationType, originalEqn, pertHeads, removeScalarWrapper] validates full quadratic equation reconstruction and returns {isComplete, residual}.";
 ValidateAllFullEquations::usage = "ValidateAllFullEquations[equations, pertHeads, removeScalarWrapper] validates full reconstructions for linear/quadratic A,B,C,D and returns an Association with results and summary.";
@@ -81,7 +81,6 @@ Begin["xAct`xAlpha`Private`"];
 
 (* ========================================================================== *)
 (* Helper: solve for the first concrete instance of a given head in eq.       *)
-(* Solve[eq, head[_,_]] fails because a Pattern is not a valid variable.      *)
 (* SolveForHead finds e.g. KXX[phi0, X0] from the equation and solves for it.*)
 (* ========================================================================== *)
 SolveForHead[eq_, head_] :=
@@ -91,8 +90,7 @@ SolveForHead[eq_, head_] :=
   ];
 
 (* ========================================================================== *)
-(* Helper: full K→G3→G4→conservation→rescaling pipeline for Extract* funcs. *)
-(* Avoids repeating the same 9-line block for every coefficient slot.         *)
+(* Helper: full K→G3→G4→conservation→rescaling pipeline.                      *)
 (* ========================================================================== *)
 TransformCoeffToAlphaLanguage[coeff_, phidotToX_, removeScalarWrapper_] :=
   Module[{c = coeff, rules},
@@ -109,6 +107,7 @@ TransformCoeffToAlphaLanguage[coeff_, phidotToX_, removeScalarWrapper_] :=
     ApplyReverseXRuleToCoeff[Simplify[c]]
   ];
 
+(* ========================================================================== *)
 (* 0. Background EOM & Alpha EOM Caching Logic                                *)
 (* ========================================================================== *)
 
@@ -631,7 +630,7 @@ RemoveG3[expr_, phidotToX_] := Module[{SolveG3X, SolveG3XX, SolveG3XXX, SolveG3X
     derivRules = GetHorndeskiRules[];
     
     Quiet[
-      (* Solve for each G3 function independently - DO NOT substitute into later equations *)
+      (* Solve for each G3 function independently *)
       SolveG3X = With[{$pe = PrepEq[aBexpr, derivRules, phidotToX]}, If[$pe === $Failed, {}, SolveForHead[$pe, G3X]]];
       SolveG3XX = With[{$pe = PrepEq[aBXexpr, derivRules, phidotToX]}, If[$pe === $Failed, {}, SolveForHead[$pe, G3XX]]];
       SolveG3XXX = With[{$pe = PrepEq[aBXXexpr, derivRules, phidotToX]}, If[$pe === $Failed, {}, SolveForHead[$pe, G3XXX]]];
